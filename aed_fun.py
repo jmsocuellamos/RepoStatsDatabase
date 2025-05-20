@@ -111,12 +111,12 @@ def tfreq_ordinal_ord(df, varcol, cats_ordered):
   # Codificamos según el orden establecido
   cat_num = list(range(len(cats_ordered)))
   for i in cat_num:
-    df[varcol].replace({cats_ordered[i]: str(cat_num[i])}, inplace = True)
+    df[varcol] = df[varcol].replace({cats_ordered[i]: str(cat_num[i])})
   tabla = tfreq_ordinal(df, varcol)
   # Volvemos a las etiquetas oroginales
   for i in cat_num:
-    tabla[varcol].replace({str(cat_num[i]): cats_ordered[i]}, inplace = True)
-    df[varcol].replace({str(cat_num[i]): cats_ordered[i]}, inplace = True)
+    tabla[varcol] = tabla[varcol].replace({str(cat_num[i]): cats_ordered[i]})
+    df[varcol] = df[varcol].replace({str(cat_num[i]): cats_ordered[i]})
   # Devolvemos la tabla
   return(tabla)
 
